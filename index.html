@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10131d">
+<title>WASSOLO MUSIC AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#10131d;color:#fff;font-family:Arial,sans-serif}
+header{padding:23px 18px;background:#191f2d;border-bottom:1px solid #30394b}
+.logo{font-size:23px;font-weight:800;color:#56d6a0}
+header p{color:#aab4c5;font-size:13px;margin-bottom:0}
+main{padding:18px;max-width:600px;margin:auto}
+h2{font-size:21px;margin:8px 0}
+.sub{color:#aab4c5;font-size:13px;line-height:1.5}
+.card{background:#1b2332;border:1px solid #30394b;border-radius:15px;padding:17px;margin:17px 0}
+label{display:block;font-size:13px;margin:15px 0 8px;color:#d8e2ef}
+input,select,textarea{width:100%;padding:13px;border-radius:9px;border:1px solid #39465a;background:#111927;color:white;font-size:15px}
+textarea{min-height:110px;resize:vertical}
+button{border:0;border-radius:10px;padding:14px;background:#42c990;color:#10251c;font-weight:bold;font-size:15px;width:100%;margin-top:18px}
+button:active{opacity:.8}
+.tag{display:inline-block;background:#293a42;color:#75e6b3;border-radius:20px;padding:7px 11px;font-size:12px;margin:4px}
+.note{font-size:12px;color:#9eabc0;line-height:1.6}
+footer{text-align:center;padding:25px;color:#7f8ba0;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">♫ WASSOLO MUSIC AI</div>
+  <p>Ton studio intelligent de création musicale</p>
+</header>
+
+<main>
+  <h2>Bienvenue dans ton studio</h2>
+  <p class="sub">Imagine ta musique. Décris ton style. Prépare ta prochaine création.</p>
+
+  <div class="card">
+    <span class="tag">Afrobeats</span>
+    <span class="tag">Wassoulou</span>
+    <span class="tag">Highlife</span>
+    <span class="tag">Coupé-décalé</span>
+    <h2>Créer une musique</h2>
+
+    <label for="titre">Titre de la chanson</label>
+    <input id="titre" placeholder="Exemple : Dèmè ni Dèmè">
+
+    <label for="type">Type de création</label>
+    <select id="type">
+      <option value="Chanson complète avec voix">Chanson complète avec voix</option>
+      <option value="Instrumentale sans voix">Instrumentale sans voix</option>
+    </select>
+
+    <label for="langue">Langue des paroles</label>
+    <select id="langue">
+      <option>Bambara</option>
+      <option>Français</option>
+      <option>Anglais</option>
+      <option>Dioula</option>
+      <option>Autre langue</option>
+    </select>
+
+    <label for="style">Style musical</label>
+    <select id="style">
+      <option>Afrobeats</option>
+      <option>Wassoulou</option>
+      <option>Highlife</option>
+      <option>Coupé-décalé ivoirien</option>
+      <option>Musique mandingue</option>
+      <option>Afropop</option>
+      <option>Gospel africain</option>
+      <option>Musique traditionnelle malienne</option>
+      <option>Autre style</option>
+    </select>
+
+    <label for="voix">Type de voix</label>
+    <select id="voix">
+      <option>Voix masculine</option>
+      <option>Voix féminine</option>
+      <option>Voix en duo</option>
+      <option>Sans voix</option>
+    </select>
+
+    <label for="description">Décris la musique souhaitée</label>
+    <textarea id="description" placeholder="Décris les instruments, le rythme, l'ambiance, la mélodie et le sujet de la chanson..."></textarea>
+
+    <label for="paroles">Tes paroles (facultatif)</label>
+    <textarea id="paroles" placeholder="Écris tes paroles ici ou laisse le moteur préparer les paroles..."></textarea>
+
+    <button onclick="preparer()">Préparer ma création musicale</button>
+    <p class="note" id="resultat">Le moteur musical cloud sera connecté dans une prochaine étape.</p>
+  </div>
+
+  <div class="card">
+    <h2>Ma bibliothèque</h2>
+    <p class="sub">Tes prochaines chansons et instrumentales apparaîtront ici.</p>
+    <p class="note">Aucune musique générée pour le moment.</p>
+  </div>
+</main>
+
+<footer>WASSOLO MUSIC AI © 2026<br>Création musicale intelligente</footer>
+
+<script>
+function preparer(){
+ const titre=document.getElementById("titre").value.trim();
+ const description=document.getElementById("description").value.trim();
+ const resultat=document.getElementById("resultat");
+
+ if(!titre || !description){
+  resultat.textContent="Ajoute un titre et une description pour continuer.";
+  return;
+ }
+
+ const projet={
+  titre:titre,
+  type:document.getElementById("type").value,
+  langue:document.getElementById("langue").value,
+  style:document.getElementById("style").value,
+  voix:document.getElementById("voix").value,
+  description:description,
+  paroles:document.getElementById("paroles").value
+ };
+
+ resultat.textContent="Projet préparé : "+projet.titre+
+ " | "+projet.style+" | "+projet.langue+
+ ". Le moteur musical sera connecté à l'étape suivante.";
+}
+</script>
+</body>
+</html>
